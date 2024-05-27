@@ -181,6 +181,9 @@
 
                     // 累加代币数量
                     totalTokenCount += data.tokenAmount;
+                } else {
+                    document.getElementById('token-' + index).textContent = '未找到';
+                    document.getElementById('remark-' + index).textContent = '未找到';
                 }
             } catch (error) {
                 console.error('Error fetching data for address:', address, error);
@@ -191,7 +194,7 @@
 
         function updateTotalSummary() {
             let totalCount = document.querySelectorAll('[id^=token-]').length;
-            document.getElementById('total-summary').textContent = `总符合数: ${totalCount} 个，总代币数量: ${totalTokenCount}`;
+            document.getElementById('total-summary').textContent = `总查询数: ${totalCount} 个，总代币数量: ${totalTokenCount}`;
             addExportButton();
         }
 

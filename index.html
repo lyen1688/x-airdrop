@@ -182,6 +182,10 @@
                     // 累加代币数量
                     totalTokenCount += data.tokenAmount;
                 }
+            } catch (error) {
+                console.error('Error fetching data for address:', address, error);
+                document.getElementById('token-' + index).textContent = 'Error';
+                document.getElementById('remark-' + index).textContent = 'Error';
             }
         }
 
